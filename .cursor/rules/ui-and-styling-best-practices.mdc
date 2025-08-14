@@ -1,0 +1,10 @@
+---
+description: Guidelines for UI components and styling with Tailwind/Shadcn
+globs: **/*.{ts,tsx,css}
+---
+
+- Use Tailwind CSS for utility-first styling
+- Follow Shadcn UI component guidelines for accessibility
+- Design with mobile-first, responsive principles
+- Ensure color contrast ratios meet accessibility standards
+- Maintain consistent spacing values for visual harmony

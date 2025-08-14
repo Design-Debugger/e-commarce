@@ -1,0 +1,10 @@
+---
+description: Best practices for Redux state management
+globs: **/*.{ts,tsx}
+---
+
+- Use Redux Toolkit for global state management
+- Define state, reducers, and actions together with createSlice
+- Normalize state structure to avoid deeply nested data
+- Use selectors to encapsulate state access
+- Avoid large, all-encompassing slices; separate concerns by feature

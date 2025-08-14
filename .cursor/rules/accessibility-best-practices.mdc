@@ -1,0 +1,10 @@
+---
+description: Core accessibility requirements for web applications
+globs: **/*.{ts,tsx,html}
+---
+
+- Use semantic HTML for meaningful structure
+- Ensure full keyboard navigation support
+- Maintain accessible color contrast ratios
+- Provide clear and accessible error feedback
+- Follow a logical heading hierarchy for screen readers

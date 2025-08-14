@@ -1,0 +1,11 @@
+---
+description: Best practices for documenting code and APIs
+globs: **/*.{ts,tsx}
+alwaysApply: True
+---
+
+- Use JSDoc for documenting public functions and interfaces
+- Keep descriptions clear and concise with proper markdown formatting
+- Add examples where appropriate for clarity
+- Use complete sentences with proper punctuation
+- Organize documentation with proper headings and lists

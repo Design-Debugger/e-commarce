@@ -1,0 +1,10 @@
+---
+description: Best practices for Next.js applications and routing
+globs: **/*.{ts,tsx}
+---
+
+- Utilize App Router for routing
+- Implement proper metadata management
+- Use Next.js built-in components for optimized performance
+- Default to Server Components for better data handling
+- Implement proper error boundaries

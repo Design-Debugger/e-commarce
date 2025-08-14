@@ -1,0 +1,10 @@
+---
+description: Security guidelines for web applications
+globs: **/*.{ts,tsx,js}
+---
+
+- Implement input sanitization to prevent XSS attacks
+- Use DOMPurify for sanitizing HTML content
+- Use proper authentication methods to secure user data
+- Regularly update dependencies to mitigate vulnerabilities
+- Implement Content Security Policy (CSP) for added security

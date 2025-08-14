@@ -1,0 +1,252 @@
+# MicroBiz E-commerce Platform - Development Guide
+
+## Project Overview
+
+This is a comprehensive e-commerce platform specifically designed for micro businesses in Bangladesh and other emerging markets. The platform features a unique approach where businesses can start with a simple link tree-style single-page shop and gradually expand to a full-fledged e-commerce store.
+
+## Core Technology Stack
+
+### Framework & Language
+- **Next.js 15**: React framework with App Router for server-side rendering
+- **TypeScript**: Type-safe development with strict mode enabled
+- **React 19**: Latest React features including Server Components
+
+### Styling & UI
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
+- **Shadcn UI**: Modern, accessible component library built on Radix UI
+- **Lucide React**: Beautiful, customizable SVG icons
+- **Class Variance Authority**: Type-safe component variants
+
+## Key Features Implementation
+
+### 1. Multi-format Store Display
+```typescript
+// Store can switch between single-page and multi-page layouts
+type StoreFormat = 'linktree' | 'traditional' | 'hybrid'
+```
+
+### 2. Payment Gateway Integration
+- **bKash**: Mobile financial service integration
+- **Pathao Pay**: QR code payment system
+- **Cash on Delivery**: Traditional payment method
+- **Manual Payment Tracking**: Screenshot upload and verification
+
+### 3. Localization Support
+- **Bengali (বাংলা)**: Primary language for local market
+- **English**: Secondary language for broader reach
+- **RTL Support**: Right-to-left text support when needed
+
+### 4. WhatsApp Integration
+- Order confirmations sent via WhatsApp API
+- Customer support integration
+- Automated messaging for order updates
+
+## Development Patterns
+
+### Component Structure
+```
+components/
+├── ui/                 # Base Shadcn UI components
+│   ├── button.tsx
+│   ├── card.tsx
+│   └── badge.tsx
+├── layout/            # Layout components
+│   ├── header.tsx
+│   ├── footer.tsx
+│   └── navigation.tsx
+├── forms/             # Form components
+│   ├── product-form.tsx
+│   ├── order-form.tsx
+│   └── customer-form.tsx
+├── features/          # Feature-specific components
+│   ├── product-catalog/
+│   ├── shopping-cart/
+│   ├── order-management/
+│   └── payment-processing/
+└── widgets/           # Reusable widgets
+    ├── product-card.tsx
+    ├── order-tracker.tsx
+    └── payment-gateway.tsx
+```
+
+### State Management Strategy
+- **Server Components**: Default for data fetching and display
+- **Client Components**: Interactive features (cart, forms, real-time updates)
+- **Local State**: React useState for component-level state
+- **Server State**: Next.js built-in caching and revalidation
+
+### API Architecture
+```
+app/api/
+├── products/
+│   ├── route.ts       # GET /api/products
+│   └── [id]/
+│       └── route.ts   # GET /api/products/[id]
+├── orders/
+│   ├── route.ts       # POST /api/orders
+│   └── [id]/
+│       ├── route.ts   # GET /api/orders/[id]
+│       └── track/
+│           └── route.ts # GET /api/orders/[id]/track
+├── payments/
+│   ├── bkash/
+│   │   └── route.ts   # POST /api/payments/bkash
+│   ├── pathao/
+│   │   └── route.ts   # POST /api/payments/pathao
+│   └── cod/
+│       └── route.ts   # POST /api/payments/cod
+└── webhooks/
+    ├── bkash/
+    └── whatsapp/
+```
+
+## Code Quality Standards
+
+### TypeScript Configuration
+- **Strict Mode**: Enabled for maximum type safety
+- **No Implicit Any**: All variables must have explicit types
+- **Interface Over Type**: Use interfaces for object shapes
+- **Utility Types**: Leverage TypeScript utilities (Partial, Pick, Omit)
+
+### Component Development
+```typescript
+// Example component structure
+interface ProductCardProps {
+	product: Product
+	onAddToCart: (productId: string) => void
+	isLoading?: boolean
+	className?: string
+}
+
+function ProductCard({ 
+	product, 
+	onAddToCart, 
+	isLoading = false, 
+	className 
+}: ProductCardProps) {
+	// Component implementation
+}
+```
+
+### Error Handling
+- **Error Boundaries**: Catch and handle React component errors
+- **API Error Handling**: Consistent error response format
+- **User Feedback**: Clear error messages in Bengali and English
+- **Logging**: Comprehensive error logging for debugging
+
+## Performance Optimization
+
+### Image Optimization
+- **Next.js Image Component**: Automatic optimization and lazy loading
+- **WebP Format**: Modern image format for better compression
+- **Responsive Images**: Multiple sizes for different devices
+- **CDN Integration**: Serve images from edge locations
+
+### Bundle Optimization
+- **Code Splitting**: Automatic splitting by Next.js
+- **Dynamic Imports**: Lazy load heavy components
+- **Tree Shaking**: Remove unused code
+- **Bundle Analysis**: Regular size monitoring
+
+### Caching Strategy
+- **Static Generation**: Pre-render product pages
+- **Incremental Static Regeneration**: Update static content
+- **API Route Caching**: Cache frequently accessed data
+- **Browser Caching**: Optimize client-side caching
+
+## Security Considerations
+
+### Payment Security
+- **PCI Compliance**: Secure payment data handling
+- **Token-based Payments**: Avoid storing sensitive payment info
+- **SSL/TLS**: Encrypt all data transmission
+- **Input Validation**: Validate all user inputs
+
+### Data Protection
+- **Personal Data**: Comply with data protection regulations
+- **Authentication**: Secure user authentication system
+- **Authorization**: Role-based access control
+- **Audit Logging**: Track important user actions
+
+## Testing Strategy
+
+### Unit Testing
+```bash
+# Run unit tests
+npm run test
+
+# Run tests with coverage
+npm run test:coverage
+```
+
+### Integration Testing
+- **API Routes**: Test all endpoints
+- **Database Operations**: Test CRUD operations
+- **External Services**: Mock third-party APIs
+
+### End-to-End Testing
+- **Critical User Flows**: Complete purchase journey
+- **Payment Processing**: Test all payment methods
+- **Multi-language**: Test language switching
+- **Mobile Responsiveness**: Test on various devices
+
+## Deployment Guide
+
+### Environment Configuration
+```bash
+# Production environment variables
+NODE_ENV=production
+NEXT_PUBLIC_APP_URL=https://yourdomain.com
+DATABASE_URL=your_production_database_url
+BKASH_API_KEY=your_production_bkash_key
+PATHAO_PAY_API_KEY=your_production_pathao_key
+WHATSAPP_API_TOKEN=your_production_whatsapp_token
+```
+
+### Deployment Steps
+1. **Build Application**: `npm run build`
+2. **Environment Setup**: Configure production environment variables
+3. **Database Migration**: Run database setup scripts
+4. **Static Assets**: Upload images and assets to CDN
+5. **SSL Certificate**: Configure HTTPS
+6. **Domain Setup**: Configure custom domain if applicable
+
+## Monitoring & Analytics
+
+### Performance Monitoring
+- **Core Web Vitals**: Track loading, interactivity, and visual stability
+- **Error Tracking**: Monitor and alert on errors
+- **API Performance**: Track response times and error rates
+
+### Business Analytics
+- **Google Analytics**: Track user behavior and conversions
+- **Facebook Pixel**: Track social media marketing performance
+- **Custom Events**: Track business-specific metrics
+
+## Future Enhancements
+
+### Planned Features
+- **Mobile App**: React Native companion app
+- **Advanced Analytics**: Business intelligence dashboard
+- **Multi-vendor**: Support for multiple sellers
+- **AI Recommendations**: Product recommendation engine
+- **Voice Commerce**: Voice-activated shopping
+
+### Technical Improvements
+- **PWA Features**: Progressive Web App capabilities
+- **Offline Support**: Basic offline functionality
+- **Real-time Features**: WebSocket integration for live updates
+- **Advanced Caching**: Redis integration for better performance
+
+## Support & Documentation
+
+### Developer Resources
+- **Component Documentation**: Storybook integration
+- **API Documentation**: OpenAPI/Swagger documentation
+- **Code Examples**: Example implementations for common patterns
+- **Video Tutorials**: Step-by-step development guides
+
+### Community Support
+- **GitHub Issues**: Bug reports and feature requests
+- **Discord Community**: Real-time developer support
+- **Regular Updates**: Monthly feature releases and updates

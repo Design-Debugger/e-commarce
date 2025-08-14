@@ -1,0 +1,10 @@
+---
+description: Best practices for React applications
+globs: **/*.{ts,tsx,js,jsx}
+---
+
+- Use functional components with TypeScript interfaces
+- Extract reusable logic into custom hooks
+- Implement proper cleanup in useEffect hooks
+- Use React.memo() strategically for performance
+- Avoid inline function definitions in JSX

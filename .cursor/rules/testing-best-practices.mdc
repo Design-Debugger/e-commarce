@@ -1,0 +1,11 @@
+---
+name: testing-best-practices.mdc
+description: Best practices for testing React applications
+globs: **/*.{ts,tsx}
+---
+
+- Write thorough unit tests using Jest and React Testing Library
+- Follow Arrange-Act-Assert pattern for clarity in tests
+- Mock external dependencies to isolate unit tests
+- Focus on user workflows for integration testing
+- Use snapshot testing selectively to catch unintended UI changes
