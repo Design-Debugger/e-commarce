@@ -1,0 +1,128 @@
+---
+alwaysApply: true
+---
+
+---
+
+# Documentation Guidelines - Must Follow Rules
+
+## Philosophy
+
+Documentation is code. Every change to the system must come with updated documentation. No feature, fix, or refactor is considered complete without docs, examples, and changelogs updated in the same PR.
+
+## Structure & Organization
+
+* **Diátaxis Framework**: All documentation organized into Tutorials, How-to Guides, Reference, and Explanations.
+* **Docs Directory**:
+
+  ```
+  /docs
+    /tutorials
+    /how-to
+    /reference
+    /explanations
+    /architecture
+      repo-structure.md
+      data-flow.md
+    /adrs
+      ADR-0001-title.md
+    /ui
+      /components
+        button.md
+        modal.md
+        ...
+  ```
+* **Ownership**: Each page lists an owner and last updated date.
+
+## UI Component Documentation
+
+* **Every UI component must have a dedicated doc page**:
+
+  * Purpose & usage guidelines
+  * Props/parameters with types
+  * States & variants (loading, disabled, error, etc.)
+  * Accessibility notes (keyboard, ARIA, focus management)
+  * Code examples & Storybook stories
+  * Do/Don’t usage patterns
+  * Design tokens (colors, spacing, typography)
+
+## Modification Policy
+
+* **No silent changes**. Any change must include:
+
+  1. Updated or new documentation (Diátaxis slot)
+  2. Storybook story / example updates
+  3. Changelog entry
+  4. Updated ADR if the architectural decision changed
+  5. Migration notes for breaking changes
+* PRs missing documentation are blocked by CI.
+
+## Core Docs Files
+
+* `README.md`: Project purpose, quickstart, scope
+* `CONTRIBUTING.md`: Contribution rules, branching, commit standards, doc coverage requirements
+* `CODE_OF_CONDUCT.md`: Community baseline
+* `SECURITY.md`: Vulnerability reporting
+* `CHANGELOG.md`: Versioned change log with "Unreleased" section
+* `LICENSE`: Clear usage rights
+
+## Versioning & Commit Standards
+
+* **Semantic Versioning** (MAJOR.MINOR.PATCH). Breaking changes = MAJOR bump.
+* **Conventional Commits**: `feat`, `fix`, `docs`, `chore`, `refactor`, `perf`, `test`, `build`, `ci`. Use `!` for breaking changes.
+* **Changelog Updates**: Required in every PR.
+
+## Architecture & Structure Documentation
+
+* **Repository Map**: Explain folders, layers, and conventions.
+* **ADRs (Architecture Decision Records)**: One decision per file, immutable. Supersede old ADRs with new ones.
+* **Standards Pages**: Naming conventions, dependency rules, performance budgets.
+
+## Writing Standards
+
+* Plain English, short sentences, bias-free wording.
+* Consistent terminology across docs and UI.
+* Step-by-step guides formatted consistently.
+* Write for localization: avoid idioms and culture-specific phrasing.
+
+## Examples & Verification
+
+* Every how-to guide includes a runnable code example.
+* Examples are tested in CI to avoid rot.
+* Storybook examples count as documentation if they compile.
+
+## Accessibility Documentation
+
+* Each component doc must include accessibility coverage:
+
+  * Keyboard navigation
+  * Screen reader labels
+  * Color contrast compliance
+* A11y testing integrated into CI.
+
+## Governance & Ownership
+
+* Docs are part of the definition of done.
+* Every PR reviewed by both a code reviewer and a doc reviewer.
+* Doc debt tracked as GitHub issues labeled `docs:gap`.
+
+## Automation & CI
+
+* Docs linted for broken links, spelling, and front-matter.
+* Docs site built and deployed in CI.
+* API docs auto-generated where possible (OpenAPI / TypeScript).
+
+## Discoverability & Navigation
+
+* Single source of truth under `/docs`.
+* Sidebar navigation follows Diátaxis.
+* Cross-link related topics to avoid dead ends.
+
+## Golden Rules
+
+1. If you changed the UX → update the docs.
+2. If you changed behavior → update version & changelog.
+3. If you changed architecture → write an ADR.
+4. If you wrote code → write/update the example.
+5. If it has no doc owner → it doesn’t exist.
+

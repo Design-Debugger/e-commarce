@@ -1,5 +1,5 @@
 ---
-description:
+description: MicroBiz E-commerce Platform Development Guide with comprehensive testing and design review standards
 globs:
 alwaysApply: true
 ---
@@ -22,6 +22,12 @@ This is a comprehensive e-commerce platform specifically designed for micro busi
 - **Shadcn UI**: Modern, accessible component library built on Radix UI
 - **Lucide React**: Beautiful, customizable SVG icons
 - **Class Variance Authority**: Type-safe component variants
+
+### Testing & Quality Assurance
+- **Playwright**: Visual testing and end-to-end testing for design validation
+- **Jest**: Unit testing framework
+- **React Testing Library**: Component testing utilities
+- **Storybook**: Component documentation and visual testing
 
 ## Key Features Implementation
 
@@ -107,6 +113,8 @@ app/api/
 ```
 
 ## Code Quality Standards
+
+## 
 
 ### TypeScript Configuration
 - **Strict Mode**: Enabled for maximum type safety

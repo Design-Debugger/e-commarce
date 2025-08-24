@@ -1,4 +1,4 @@
-import { HeroSection } from '@/components/features/hero-section'
+import { HeroCarousel } from '@/components/features/hero-carousel'
 import { CategoryGrid } from '@/components/features/category-grid'
 import { ProductGrid } from '@/components/features/product-grid'
 import { SpecialOffers } from '@/components/features/special-offers'
@@ -15,8 +15,8 @@ export default function Home() {
 
 			{/* Main Content */}
 			<main className="flex-1">
-				{/* Hero Section */}
-				<HeroSection />
+				{/* Hero Carousel */}
+				<HeroCarousel />
 
 				{/* Category Grid */}
 				<CategoryGrid />

@@ -1,225 +1,235 @@
-# Project: MicroBiz E-commerce Platform
+# MicroBiz E-commerce Platform
 
 ## Overview
 - **Purpose**: A comprehensive e-commerce platform designed specifically for micro businesses, featuring a link tree-like single-page shop that can evolve into a full-fledged e-commerce store
 - **Stack**: Next.js 15, TypeScript, Tailwind CSS, Shadcn UI, React 19
 - **Architecture**: Component-based architecture with modern React patterns, Server-Side Rendering (SSR), and responsive design
 
-## Key Features
+## Quick Start
 
-### Core E-commerce Functionality
-- **Easy Ordering System**: Streamlined checkout process optimized for quick purchases
-- **Flexible Store Format**: Link tree-style single-page shop with option to expand to full e-commerce store
-- **Product Management**: Complete product catalog with categories, variants, and inventory tracking
-- **Order Management**: Comprehensive order tracking for both customers and store owners
-
-### Payment & Financial Management
-- **Multiple Payment Gateways**: 
-  - Cash on Delivery (COD)
-  - bKash integration
-  - Pathao Pay QR payments
-- **Payment Proof Management**: Customer payment screenshot upload system
-- **Online Invoice Generation**: Automated invoice creation with payment links
-- **Store Credit & Vouchers**: Customer loyalty and refund management
-- **Multi-currency Support**: International payment processing
-
-### Business Operations
-- **Customizable Branding**: Logo, color schemes, fonts, and custom domain support
-- **Inventory Management**: Stock tracking and low-stock alerts
-- **Packing Slip Printing**: Automated shipping documentation
-- **Partnership Integration**: Delivery service API connections
-- **Analytics Dashboard**: Page views, orders, conversion tracking
-
-### Customer Experience
-- **WhatsApp Integration**: Order confirmation via WhatsApp (similar to take.app)
-- **Real-time Order Tracking**: Customer and admin order status updates
-- **Multilingual Support**: Bengali and English language options
-- **SEO Optimization**: Search engine optimization with pixel integration
-- **Custom Pages**: Policies, FAQs, announcements, and other content pages
-
-### Advanced Features
-- **Subscription Management**: Recurring billing for products and services
-- **Digital Products**: Downloadable content delivery
-- **Booking/Reservation System**: Service-based business support
-- **Discount Management**: Coupon codes and promotional campaigns
-- **Social Media Integration**: Facebook Messenger and other platform connections
-
-## Technology Stack
-
-### Frontend
-- **Next.js 15**: React framework with App Router
-- **TypeScript**: Type-safe development
-- **Tailwind CSS**: Utility-first CSS framework
-- **Shadcn UI**: Modern, accessible component library
-- **Lucide React**: Icon library
-- **React 19**: Latest React features and optimizations
-
-### Development Tools
-- **ESLint**: Code linting and formatting
-- **PostCSS**: CSS processing
-- **Class Variance Authority**: Component variant management
-- **Tailwind Merge**: Efficient class merging
-
-## Code Patterns
-
-### Component Architecture
-- **Atomic Design**: Components organized as atoms, molecules, organisms, templates, and pages
-- **Composition Pattern**: Reusable components through composition rather than inheritance
-- **Compound Components**: Complex UI components with multiple related parts
-- **Custom Hooks**: Shared logic extraction for reusability
-
-### State Management
-- **Local State**: React useState and useReducer for component-level state
-- **Server State**: Next.js built-in data fetching with caching
-- **Global State**: Context API for shared application state
-- **Form State**: React Hook Form with Zod validation
-
-### Data Flow
-- **Server Components**: Default server-side rendering for optimal performance
-- **Client Components**: Interactive components with 'use client' directive
-- **API Routes**: Next.js API routes for backend functionality
-- **Optimistic Updates**: Immediate UI feedback with server synchronization
-
-## Style Requirements
-
-### Design System
-- **Mobile-First**: Responsive design starting from mobile breakpoints
-- **Accessibility**: WCAG 2.1 AA compliance with semantic HTML and ARIA attributes
-- **Dark Mode**: Built-in theme switching capability
-- **Brand Consistency**: Customizable design tokens for multi-tenant branding
-
-### Component Guidelines
-- **Shadcn UI Base**: All components built on Shadcn UI foundation
-- **Variant API**: Consistent component variations using class-variance-authority
-- **Responsive Patterns**: Mobile-first responsive design patterns
-- **Loading States**: Skeleton loaders and loading indicators for all async operations
-
-### Code Style
-- **Functional Components**: React function components with TypeScript interfaces
-- **Named Exports**: Consistent export patterns for better tree shaking
-- **Component Naming**: PascalCase for components, camelCase for functions
-- **File Organization**: Feature-based folder structure with co-located assets
-
-## Project Structure
-
-```
-src/
-├── app/                    # Next.js App Router
-│   ├── (routes)/          # Route groups
-│   ├── api/               # API routes
-│   ├── globals.css        # Global styles
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Homepage
-├── components/            # Reusable components
-│   ├── ui/               # Base UI components (Shadcn)
-│   ├── forms/            # Form components
-│   ├── layout/           # Layout components
-│   └── features/         # Feature-specific components
-├── lib/                   # Utility functions
-│   ├── utils.ts          # General utilities
-│   ├── validations.ts    # Zod schemas
-│   └── constants.ts      # App constants
-├── hooks/                 # Custom React hooks
-├── types/                 # TypeScript type definitions
-└── styles/               # Additional stylesheets
-```
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18.17 or later
-- npm, yarn, pnpm, or bun package manager
-
-### Installation
 ```bash
 # Install dependencies
 npm install
 
-# Run development server
+# Start development server
 npm run dev
 
-# Build for production
-npm run build
-
-# Start production server
-npm start
+# Open browser
+open http://localhost:3000
 ```
 
-### Environment Setup
-Create a `.env.local` file with required environment variables:
+## Features
+
+### 🎠 Hero Carousel
+- **Multilingual Support**: Bengali-English with automatic fallbacks
+- **Mobile-First Design**: Optimized for 70%+ mobile traffic
+- **Auto-Play & Navigation**: Touch-friendly controls with accessibility
+- **API-Ready**: Easy integration with backend services
+
+### 🌍 Localization
+- **Bengali (বাংলা)**: Native language support for Bangladesh market
+- **Currency**: BDT (৳) formatting with multi-currency support
+- **Cultural Design**: Colors and patterns appropriate for local market
+
+### 📱 Mobile-Optimized
+- **Touch Targets**: 44px minimum for accessibility
+- **Responsive Design**: Breakpoints optimized for common devices
+- **Progressive Web App**: App-like experience with offline capabilities
+- **Performance**: Optimized for slower networks
+
+## Architecture
+
+```
+src/
+├── components/
+│   ├── features/         # Business components (HeroCarousel, etc.)
+│   ├── layout/           # Layout components (Header, Footer)
+│   └── ui/               # Base UI components (Button, Card, etc.)
+├── data/                 # Data layer with API simulation
+└── lib/                  # Utility functions
+```
+
+### Data Architecture
+
+Components follow a separated data pattern:
+
+```typescript
+// Data layer (src/data/hero-carousel-data.ts)
+export async function fetchCarouselData(storeId?: string): Promise<HeroSlide[]>
+
+// Component (src/components/features/hero-carousel.tsx)
+export function HeroCarousel({ storeId }: HeroCarouselProps)
+```
+
+This enables easy API integration and testing.
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS + Shadcn UI
+- **Components**: React 19 with Server Components
+- **Carousel**: Embla Carousel + Shadcn UI
+- **Icons**: Lucide React
+
+## Documentation
+
+Comprehensive documentation following the Diátaxis framework:
+
+### 📚 [Tutorials](./docs/tutorials/)
+- [Getting Started with Hero Carousel](./docs/tutorials/getting-started-with-hero-carousel.md)
+
+### 🛠️ [How-To Guides](./docs/how-to/)
+- [Use React Dev Inspector](./docs/how-to/use-react-dev-inspector.md)
+- [Integrate Carousel with API](./docs/how-to/integrate-carousel-with-api.md)
+
+### 📖 [Reference](./docs/reference/)
+- [Carousel API Reference](./docs/reference/carousel-api.md)
+
+### 💡 [Explanations](./docs/explanations/)
+- [Carousel Design Decisions](./docs/explanations/carousel-design-decisions.md)
+
+### 🏗️ [Architecture](./docs/architecture/)
+- [Repository Structure](./docs/architecture/repo-structure.md)
+- [ADR-0001: Carousel Data Architecture](./docs/adrs/ADR-0001-hero-carousel-data-architecture.md)
+
+## Component Usage
+
+### Basic Implementation
+```tsx
+import { HeroCarousel } from '@/components/features/hero-carousel'
+
+export default function HomePage() {
+  return <HeroCarousel />
+}
+```
+
+### With Customization
+```tsx
+import { HeroCarousel } from '@/components/features/hero-carousel'
+
+export default function HomePage() {
+  return (
+    <HeroCarousel 
+      language="bn"
+      currency="BDT"
+      storeId="your-store-id"
+      config={{ autoPlayDelay: 8000 }}
+    />
+  )
+}
+```
+
+### API Integration
+```tsx
+import { HeroCarousel } from '@/components/features/hero-carousel'
+
+export default function APIPage() {
+  return (
+    <HeroCarousel 
+      storeId="store-123"
+      // Component will automatically fetch data from API
+    />
+  )
+}
+```
+
+## Development
+
+### Requirements
+- Node.js 18+ 
+- npm or yarn
+
+### Scripts
 ```bash
-# Payment Gateway Keys
-BKASH_API_KEY=your_bkash_api_key
-PATHAO_PAY_API_KEY=your_pathao_api_key
-
-# Database
-DATABASE_URL=your_database_url
-
-# WhatsApp API
-WHATSAPP_API_TOKEN=your_whatsapp_token
-
-# Analytics
-GOOGLE_ANALYTICS_ID=your_ga_id
-FACEBOOK_PIXEL_ID=your_pixel_id
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+npm run type-check   # TypeScript type checking
 ```
 
-## Development Guidelines
+### 🔍 React Dev Inspector
 
-### Component Development
-1. **Start with Design**: Create component design in Figma/design tool
-2. **Build Atomic**: Start with smallest reusable components
-3. **Type Everything**: Use TypeScript interfaces for all props and state
-4. **Test Early**: Write tests alongside component development
-5. **Document Usage**: Include JSDoc comments and Storybook stories
+Click-to-source functionality for faster debugging and development:
 
-### Performance Optimization
-- **Server Components**: Use server components by default
-- **Dynamic Imports**: Code splitting for large components
-- **Image Optimization**: Next.js Image component for all images
-- **Bundle Analysis**: Regular bundle size monitoring
-- **Caching Strategy**: Implement appropriate caching for API calls
+**Quick Start:**
+1. Start development server: `npm run dev`
+2. Activate inspector: `Ctrl + Shift + Cmd + C` (Mac) or `Ctrl + Shift + C` (Windows/Linux)
+3. Click any component in browser → Opens source code in your IDE
 
-### Accessibility Requirements
-- **Semantic HTML**: Use proper HTML elements for content structure
-- **Keyboard Navigation**: All interactive elements accessible via keyboard
-- **Screen Readers**: ARIA labels and descriptions for complex UI
-- **Color Contrast**: Minimum 4.5:1 contrast ratio for text
-- **Focus Management**: Visible focus indicators and logical tab order
+**Features:**
+- ✅ Zero production impact (development only)
+- ✅ Works with VS Code, WebStorm, Atom, Sublime Text
+- ✅ Instant navigation from browser to source code
+- ✅ Automatic IDE file opening
 
-## Deployment
+📖 **[Complete React Dev Inspector Guide](./docs/how-to/use-react-dev-inspector.md)**
 
-### Vercel (Recommended)
-```bash
-# Deploy to Vercel
-npx vercel
+### Adding New Components
 
-# Production deployment
-npx vercel --prod
-```
-
-### Build Optimization
-- **Static Generation**: Pre-render pages where possible
-- **Image Optimization**: Automatic WebP conversion and lazy loading
-- **Bundle Splitting**: Automatic code splitting by Next.js
-- **Edge Functions**: Deploy API routes to edge locations
+1. Create component in appropriate directory
+2. Follow data separation pattern
+3. Add TypeScript interfaces
+4. Create documentation in `/docs/ui/components/`
+5. Update changelog
 
 ## Contributing
 
-### Code Standards
-- Follow TypeScript strict mode
-- Use Prettier for code formatting
-- Maintain 100% TypeScript coverage
-- Write meaningful commit messages
-- Update documentation with code changes
+1. Read [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines
+2. Follow [conventional commits](https://conventionalcommits.org/)
+3. Update documentation for any user-facing changes
+4. Add changelog entry
 
-### Testing Strategy
-- **Unit Tests**: Jest and React Testing Library
-- **Integration Tests**: API route testing
-- **E2E Tests**: Playwright for critical user flows
-- **Visual Regression**: Chromatic for component testing
+### Documentation Requirements
+
+Every component must have:
+- Purpose & usage guidelines
+- Props/parameters with types
+- Code examples
+- Accessibility notes
+- Do/Don't patterns
+
+## Browser Support
+
+- **Modern Browsers**: Chrome 91+, Firefox 90+, Safari 14+, Edge 91+
+- **Mobile**: iOS Safari 14+, Android Chrome 91+
+- **Progressive Enhancement**: Graceful degradation for older browsers
+
+## Performance
+
+- **Core Web Vitals**: Optimized for excellent scores
+- **Bundle Size**: ~200KB initial load, ~50KB additional chunks
+- **Image Optimization**: WebP with JPEG fallback
+- **Network Resilience**: Works on slow connections
 
 ## License
-MIT License - See LICENSE file for details
+
+MIT License - see [LICENSE](./LICENSE) for details.
 
 ## Support
-For support and questions, please refer to the project documentation or create an issue in the repository.
+
+- 📖 [Documentation](./docs/)
+- 🐛 [Report Issues](https://github.com/your-org/e-commerce/issues)
+- 💬 [Discussions](https://github.com/your-org/e-commerce/discussions)
+
+## Roadmap
+
+### v1.1.0 (Q1 2025)
+- Real-time inventory updates
+- Advanced analytics dashboard
+- A/B testing framework
+
+### v1.2.0 (Q2 2025)
+- Multi-vendor support
+- WhatsApp Commerce integrations
+- Voice commerce capabilities
+
+### v2.0.0 (Q3 2025)
+- AI-powered personalization
+- AR product visualization
+- Advanced mobile app
+
+---
+
+**Built with ❤️ by Shihab Shaharia for micro businesses in Bangladesh and emerging markets.**

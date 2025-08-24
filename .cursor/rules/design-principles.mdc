@@ -1,0 +1,163 @@
+---
+alwaysApply: true
+---
+
+# MicroBiz E-commerce Design Principles (Inspired by Stripe, Airbnb, Linear, Shopify, Arogga)
+
+## I. Core Design Philosophy & Strategy
+
+*   [ ] **Micro Business First:** Design for small business owners with limited technical knowledge. Prioritize simplicity and intuitive workflows.
+*   [ ] **Progressive Complexity:** Start with simple linktree-style stores and allow gradual expansion to full e-commerce without overwhelming users.
+*   [ ] **Mobile-First Bangladesh Market:** Design primarily for mobile users (70%+ of traffic). Optimize for slower internet connections and mid-range devices.
+*   [ ] **Bengali-English Dual Language:** Ensure seamless language switching and culturally appropriate design patterns for Bengali users.
+*   [ ] **Trust & Credibility:** Build confidence for both business owners and customers in emerging e-commerce markets.
+*   [ ] **Speed & Performance:** Optimize for slower networks common in Bangladesh. Fast loading is crucial for conversion.
+*   [ ] **Accessibility (WCAG AA+):** Design for diverse literacy levels and device capabilities across Bangladesh.
+*   [ ] **WhatsApp Commerce Integration:** Seamlessly blend traditional messaging commerce with modern e-commerce features.
+
+## II. Design System Foundation (Tokens & Core Components)
+
+*   [ ] **Define E-commerce Color Palette:**
+    *   [ ] **Primary Brand Color:** Green (#16A34A) - represents trust, money, and growth in Bengali culture
+    *   [ ] **Neutrals:** 7-step gray scale optimized for both light and dark modes
+    *   [ ] **Semantic Colors:** 
+        *   [ ] Success: Green (#22C55E) - order confirmed, payment successful
+        *   [ ] Error: Red (#EF4444) - payment failed, out of stock
+        *   [ ] Warning: Amber (#F59E0B) - low stock, pending verification
+        *   [ ] Info: Blue (#3B82F6) - new features, tips
+        *   [ ] bKash Pink: (#E2136E) - for bKash payment integration
+        *   [ ] Pathao Orange: (#FF6B35) - for Pathao Pay integration
+*   [ ] **Typography for Bengali-English:**
+    *   [ ] **Primary Font:** Inter (excellent Bengali support) or Noto Sans Bengali
+    *   [ ] **Scale:** H1: 32px, H2: 24px, H3: 20px, H4: 18px, Body: 16px (mobile-optimized), Small: 14px
+    *   [ ] **Line Height:** 1.6-1.8 for Bengali text readability
+    *   [ ] **Font Weights:** Regular (400), Medium (500), SemiBold (600) for clear hierarchy
+*   [ ] **Mobile-First Spacing:**
+    *   [ ] **Base Unit:** 4px (touch-friendly)
+    *   [ ] **Scale:** 4px, 8px, 12px, 16px, 24px, 32px, 48px (larger touch targets)
+*   [ ] **Touch-Friendly Components:**
+    *   [ ] **Minimum Touch Target:** 44px height for buttons and interactive elements
+    *   [ ] **Border Radius:** Small: 6px, Medium: 12px, Large: 16px (modern, friendly feel)
+
+## III. E-commerce Specific Components
+
+*   [ ] **Product Components:**
+    *   [ ] **Product Cards:** Image-first with price prominence, quick add-to-cart
+    *   [ ] **Product Gallery:** Swipeable image carousel optimized for mobile
+    *   [ ] **Price Display:** Clear BDT formatting with discount indicators
+    *   [ ] **Stock Indicators:** Clear in-stock/out-of-stock states
+    *   [ ] **Category Navigation:** Simple, icon-based category browsing
+*   [ ] **Shopping Cart & Checkout:**
+    *   [ ] **Floating Cart Icon:** Persistent cart access with item count
+    *   [ ] **Cart Drawer:** Slide-out cart for quick review and editing
+    *   [ ] **Checkout Flow:** Single-page checkout optimized for mobile
+    *   [ ] **Payment Method Selector:** Visual cards for bKash, Pathao Pay, COD
+    *   [ ] **Order Summary:** Clear breakdown with shipping and total
+*   [ ] **Store Layout Components:**
+    *   [ ] **Linktree Mode:** Clean, vertical stack of products/categories
+    *   [ ] **Grid Mode:** Traditional e-commerce product grid
+    *   [ ] **List Mode:** Detailed product list view
+    *   [ ] **Store Header:** Business logo, name, and contact info prominence
+*   [ ] **Business Owner Dashboard:**
+    *   [ ] **Revenue Cards:** Simple metric displays in BDT
+    *   [ ] **Order Management:** Status-based order organization
+    *   [ ] **Product Management:** Drag-and-drop product ordering
+    *   [ ] **Analytics:** Simple, visual business insights
+
+## IV. Cultural & Local Market Design
+
+*   [ ] **Bengali Language Considerations:**
+    *   [ ] **Text Direction:** Proper handling of mixed Bengali-English text
+    *   [ ] **Number Formatting:** Bengali numerals option (০১২৩৪৫৬৭৮৯)
+    *   [ ] **Currency:** Taka (৳) symbol prominence and formatting
+    *   [ ] **Cultural Colors:** Avoid colors with negative cultural connotations
+*   [ ] **Trust Building Elements:**
+    *   [ ] **Verification Badges:** Government registration, mobile verification
+    *   [ ] **Customer Reviews:** Star ratings and text reviews
+    *   [ ] **Business Contact:** Prominent phone/WhatsApp contact
+    *   [ ] **Return Policy:** Clear, upfront return/exchange policies
+*   [ ] **Payment Integration UX:**
+    *   [ ] **bKash Flow:** Branded integration with familiar UX patterns
+    *   [ ] **Pathao Pay:** QR code scanning and payment confirmation
+    *   [ ] **Cash on Delivery:** Clear delivery expectations and verification
+    *   [ ] **Payment Screenshots:** Manual payment verification flow
+
+## V. Mobile-First Layout & Navigation
+
+*   [ ] **Bottom Navigation:** Core actions accessible via bottom tab bar
+*   [ ] **Thumb-Friendly Design:** Important actions within thumb reach
+*   [ ] **Progressive Web App:** App-like experience with offline capabilities
+*   [ ] **Quick Actions:**
+    *   [ ] **One-Tap Calling:** Direct phone calls to business
+    *   [ ] **WhatsApp Integration:** Quick message to business owner
+    *   [ ] **Share Store:** Easy store link sharing
+    *   [ ] **Add to Home Screen:** PWA installation prompts
+
+## VI. Performance & Accessibility
+
+*   [ ] **Image Optimization:**
+    *   [ ] **WebP Format:** With JPEG fallback for older devices
+    *   [ ] **Lazy Loading:** Progressive image loading for slower connections
+    *   [ ] **Responsive Images:** Multiple sizes for different screen densities
+*   [ ] **Network Optimization:**
+    *   [ ] **Critical Path CSS:** Inline critical styles for faster first paint
+    *   [ ] **Code Splitting:** Route-based splitting for faster navigation
+    *   [ ] **Service Worker:** Offline support for previously visited pages
+*   [ ] **Accessibility for Diverse Users:**
+    *   [ ] **High Contrast Mode:** For users with visual impairments
+    *   [ ] **Large Text Support:** Scalable text for older users
+    *   [ ] **Simple Navigation:** Clear, predictable navigation patterns
+    *   [ ] **Voice Commands:** Basic voice navigation support
+
+## VII. Business Owner Experience
+
+*   [ ] **Onboarding Flow:**
+    *   [ ] **Progressive Setup:** Start selling in 5 minutes, perfect store over time
+    *   [ ] **Template Gallery:** Pre-designed store layouts for different business types
+    *   [ ] **Guided Tour:** Interactive tutorial for new users
+*   [ ] **Content Management:**
+    *   [ ] **Photo Upload:** Simple drag-and-drop with auto-optimization
+    *   [ ] **Product Entry:** Quick product addition with smart defaults
+    *   [ ] **Inventory Tracking:** Simple stock management tools
+*   [ ] **Analytics & Insights:**
+    *   [ ] **Simple Metrics:** Revenue, orders, top products in easy-to-understand format
+    *   [ ] **Growth Tips:** Actionable suggestions for business improvement
+    *   [ ] **Performance Alerts:** Low stock, payment issues, customer inquiries
+
+## VIII. Customer Experience
+
+*   [ ] **Discovery & Browse:**
+    *   [ ] **Store Search:** Find products quickly within a store
+    *   [ ] **Category Filtering:** Simple category-based browsing
+    *   [ ] **Recently Viewed:** Easy access to previously viewed products
+*   [ ] **Purchase Flow:**
+    *   [ ] **Guest Checkout:** No account required for first purchase
+    *   [ ] **Social Login:** Facebook/Google login for returning customers
+    *   [ ] **Order Tracking:** Simple order status updates via SMS/WhatsApp
+*   [ ] **Support & Communication:**
+    *   [ ] **Live Chat:** WhatsApp-based customer support
+    *   [ ] **FAQ Section:** Common questions answered upfront
+    *   [ ] **Return Process:** Clear, step-by-step return instructions
+
+## IX. Technical Implementation with Tailwind & Shadcn UI
+
+*   [ ] **Design Token Integration:**
+    *   [ ] **Tailwind Config:** Custom colors, spacing, and typography tokens
+    *   [ ] **Dark Mode:** System-based dark mode with manual toggle
+    *   [ ] **Component Variants:** Shadcn UI component customization
+*   [ ] **Responsive Breakpoints:**
+    *   [ ] **Mobile:** 320px-768px (primary focus)
+    *   [ ] **Tablet:** 768px-1024px (secondary)
+    *   [ ] **Desktop:** 1024px+ (administrative tasks)
+*   [ ] **Performance Monitoring:**
+    *   [ ] **Core Web Vitals:** Track loading, interactivity, visual stability
+    *   [ ] **Real User Monitoring:** Actual user experience metrics from Bangladesh
+    *   [ ] **Conversion Tracking:** Monitor checkout completion rates
+
+## X. Continuous Improvement
+
+*   [ ] **User Feedback Loop:** Regular feedback collection from business owners and customers
+*   [ ] **A/B Testing:** Test key flows like checkout and product discovery
+*   [ ] **Market Research:** Stay updated with Bangladesh e-commerce trends
+*   [ ] **Feature Evolution:** Gradual feature rollout based on user readiness
+*   [ ] **Community Building:** Foster community of successful micro business owners

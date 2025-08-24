@@ -1,0 +1,235 @@
+# MicroBiz E-commerce Platform
+
+## Overview
+- **Purpose**: A comprehensive e-commerce platform designed specifically for micro businesses, featuring a link tree-like single-page shop that can evolve into a full-fledged e-commerce store
+- **Stack**: Next.js 15, TypeScript, Tailwind CSS, Shadcn UI, React 19
+- **Architecture**: Component-based architecture with modern React patterns, Server-Side Rendering (SSR), and responsive design
+
+## Key Features
+
+### Core E-commerce Functionality
+- **Easy Ordering System**: Streamlined checkout process optimized for quick purchases
+- **Flexible Store Format**: Link tree-style single-page shop with option to expand to full e-commerce store
+- **Product Management**: Complete product catalog with categories, variants, and inventory tracking
+- **Order Management**: Comprehensive order tracking for both customers and store owners
+
+### Payment & Financial Management
+- **Multiple Payment Gateways**: 
+  - Cash on Delivery (COD)
+  - bKash integration
+  - Pathao Pay QR payments
+- **Payment Proof Management**: Customer payment screenshot upload system
+- **Online Invoice Generation**: Automated invoice creation with payment links
+- **Store Credit & Vouchers**: Customer loyalty and refund management
+- **Multi-currency Support**: International payment processing
+
+### Business Operations
+- **Customizable Branding**: Logo, color schemes, fonts, and custom domain support
+- **Inventory Management**: Stock tracking and low-stock alerts
+- **Packing Slip Printing**: Automated shipping documentation
+- **Partnership Integration**: Delivery service API connections
+- **Analytics Dashboard**: Page views, orders, conversion tracking
+
+### Customer Experience
+- **WhatsApp Integration**: Order confirmation via WhatsApp (similar to take.app)
+- **Real-time Order Tracking**: Customer and admin order status updates
+- **Multilingual Support**: Bengali and English language options
+- **SEO Optimization**: Search engine optimization with pixel integration
+- **Custom Pages**: Policies, FAQs, announcements, and other content pages
+
+### Advanced Features
+- **Subscription Management**: Recurring billing for products and services
+- **Digital Products**: Downloadable content delivery
+- **Booking/Reservation System**: Service-based business support
+- **Discount Management**: Coupon codes and promotional campaigns
+- **Social Media Integration**: Facebook Messenger and other platform connections
+
+## Technology Stack
+
+### Frontend
+- **Next.js 15**: React framework with App Router
+- **TypeScript**: Type-safe development
+- **Tailwind CSS**: Utility-first CSS framework
+- **Shadcn UI**: Modern, accessible component library
+- **Lucide React**: Icon library
+- **React 19**: Latest React features and optimizations
+
+### Development Tools
+- **ESLint**: Code linting and formatting
+- **PostCSS**: CSS processing
+- **Class Variance Authority**: Component variant management
+- **Tailwind Merge**: Efficient class merging
+
+## Code Patterns
+
+### Component Architecture
+- **Atomic Design**: Components organized as atoms, molecules, organisms, templates, and pages
+- **Composition Pattern**: Reusable components through composition rather than inheritance
+- **Compound Components**: Complex UI components with multiple related parts
+- **Custom Hooks**: Shared logic extraction for reusability
+
+### State Management
+- **Local State**: React useState and useReducer for component-level state
+- **Server State**: Next.js built-in data fetching with caching
+- **Global State**: Context API for shared application state
+- **Form State**: React Hook Form with Zod validation
+
+### Data Flow
+- **Server Components**: Default server-side rendering for optimal performance
+- **Client Components**: Interactive components with 'use client' directive
+- **API Routes**: Next.js API routes for backend functionality
+- **Optimistic Updates**: Immediate UI feedback with server synchronization
+
+## Style Requirements
+
+### Design System
+- **Mobile-First**: Responsive design starting from mobile breakpoints
+- **Accessibility**: WCAG 2.1 AA compliance with semantic HTML and ARIA attributes
+- **Dark Mode**: Built-in theme switching capability
+- **Brand Consistency**: Customizable design tokens for multi-tenant branding
+
+### Component Guidelines
+- **Shadcn UI Base**: All components built on Shadcn UI foundation
+- **Variant API**: Consistent component variations using class-variance-authority
+- **Responsive Patterns**: Mobile-first responsive design patterns
+- **Loading States**: Skeleton loaders and loading indicators for all async operations
+
+### Code Style
+- **Functional Components**: React function components with TypeScript interfaces
+- **Named Exports**: Consistent export patterns for better tree shaking
+- **Component Naming**: PascalCase for components, camelCase for functions
+- **File Organization**: Feature-based folder structure with co-located assets
+
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── (routes)/          # Route groups
+│   ├── api/               # API routes
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Homepage
+├── components/            # Reusable components
+│   ├── ui/               # Base UI components (Shadcn)
+│   ├── forms/            # Form components
+│   ├── layout/           # Layout components
+│   └── features/         # Feature-specific components
+├── lib/                   # Utility functions
+│   ├── utils.ts          # General utilities
+│   ├── validations.ts    # Zod schemas
+│   └── constants.ts      # App constants
+├── hooks/                 # Custom React hooks
+├── types/                 # TypeScript type definitions
+└── styles/               # Additional stylesheets
+```
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18.17 or later
+- npm, yarn, pnpm, or bun package manager
+
+### Installation
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+### Environment Setup
+Create a `.env.local` file with required environment variables:
+```bash
+# Payment Gateway Keys
+BKASH_API_KEY=your_bkash_api_key
+PATHAO_PAY_API_KEY=your_pathao_api_key
+
+# Database
+DATABASE_URL=your_database_url
+
+# WhatsApp API
+WHATSAPP_API_TOKEN=your_whatsapp_token
+
+# Analytics
+GOOGLE_ANALYTICS_ID=your_ga_id
+FACEBOOK_PIXEL_ID=your_pixel_id
+```
+
+## Development Guidelines
+
+### Component Development
+1. **Start with Design**: Create component design in Figma/design tool
+2. **Build Atomic**: Start with smallest reusable components
+3. **Type Everything**: Use TypeScript interfaces for all props and state
+4. **Test Early**: Write tests alongside component development
+5. **Document Usage**: Include JSDoc comments and Storybook stories
+
+### Scripts
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+npm run type-check   # TypeScript type checking
+```
+
+### Adding New Components
+
+1. Create component in appropriate directory
+2. Follow data separation pattern
+3. Add TypeScript interfaces
+4. Create documentation in `/docs/ui/components/`
+5. Update changelog
+
+### Accessibility Requirements
+- **Semantic HTML**: Use proper HTML elements for content structure
+- **Keyboard Navigation**: All interactive elements accessible via keyboard
+- **Screen Readers**: ARIA labels and descriptions for complex UI
+- **Color Contrast**: Minimum 4.5:1 contrast ratio for text
+- **Focus Management**: Visible focus indicators and logical tab order
+
+## Deployment
+
+### Vercel (Recommended)
+```bash
+# Deploy to Vercel
+npx vercel
+
+# Production deployment
+npx vercel --prod
+```
+
+### Build Optimization
+- **Static Generation**: Pre-render pages where possible
+- **Image Optimization**: Automatic WebP conversion and lazy loading
+- **Bundle Splitting**: Automatic code splitting by Next.js
+- **Edge Functions**: Deploy API routes to edge locations
+
+## Contributing
+
+### Code Standards
+- Follow TypeScript strict mode
+- Use Prettier for code formatting
+- Maintain 100% TypeScript coverage
+- Write meaningful commit messages
+- Update documentation with code changes
+
+### Testing Strategy
+- **Unit Tests**: Jest and React Testing Library
+- **Integration Tests**: API route testing
+- **E2E Tests**: Playwright for critical user flows
+- **Visual Regression**: Chromatic for component testing
+
+## License
+MIT License - See LICENSE file for details
+
+## Support
+For support and questions, please refer to the project documentation or create an issue in the repository.
