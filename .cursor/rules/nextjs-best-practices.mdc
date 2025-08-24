@@ -8,3 +8,4 @@ globs: **/*.{ts,tsx}
 - Use Next.js built-in components for optimized performance
 - Default to Server Components for better data handling
 - Implement proper error boundaries
+- Create and maintain clear code documentation for future refereance
